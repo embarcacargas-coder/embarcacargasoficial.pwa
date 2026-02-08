@@ -2,9 +2,52 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Embarca Cargas PWA</title>
+  <title>Embarca Cargas</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d47a1">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/app.css">
 </head>
+
 <body>
-  <p>PWA Embarca Cargas</p>
+
+<div class="app">
+  <div class="card">
+
+    <h2>Embarca Cargas</h2>
+    <p>Plataforma de cargas disponíveis</p>
+
+    <!-- BOTÃO / ÍCONE COM BADGE -->
+    <div style="position:relative; display:inline-block; margin-top:20px;">
+      <button style="padding:14px 20px; font-size:16px;">
+        Ver cargas
+      </button>
+
+      <span id="badgeCargas" class="badge"></span>
+    </div>
+
+  </div>
+</div>
+
+<script type="module">
+  import { verificarNovasCargas } from './js/cargas-badge.js';
+
+  verificarNovasCargas().then(novas => {
+    if (novas > 0) {
+      const badge = document.getElementById("badgeCargas");
+      badge.textContent = novas > 9 ? "9+" : novas;
+      badge.style.display = "block";
+    }
+  });
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
+</script>
+
 </body>
 </html>
