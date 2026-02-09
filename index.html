@@ -48,6 +48,14 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
 }
 </script>
+<script type="module">
+  import { atualizarBadge } from './js/cargas-badge.js';
+
+  // EXEMPLO: total de cargas publicadas
+  const TOTAL_CARGAS = 100;
+
+  atualizarBadge(TOTAL_CARGAS);
+</script>
 
 </body>
 </html>
