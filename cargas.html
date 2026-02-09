@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cargas disponíveis</title>
+</head>
+<body>
+
+  <h1>Cargas disponíveis</h1>
+
+  <!-- Aqui depois você lista as cargas -->
+  <ul>
+    <li>Carga 1</li>
+    <li>Carga 2</li>
+    <li>Carga 3</li>
+  </ul>
+
+  <!-- SCRIPT QUE ZERA O BADGE -->
+  <script type="module">
+    import { marcarCargasComoVistas } from './js/cargas-badge.js';
+
+    // ESSE NÚMERO PRECISA SER O MESMO USADO NO INDEX
+    const TOTAL_CARGAS = 100;
+
+    marcarCargasComoVistas(TOTAL_CARGAS);
+  </script>
+
+</body>
+</html>
